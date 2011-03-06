@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+    <h1>
+        {{ question.score }}
+        <a href="{% url questions_question_upvote question_key=question.key %}">&uarr;</a>
+        <a href="{% url questions_question_downvote question_key=question.key %}">&darr;</a>
+        {{ question.title }}
+        {% for tag in question.tags %}<a href="{% url questions_question_list tag=tag %}">{{ tag }}</a>{% if not forloop.last %},{% endif %}{% endfor %}
+    </h1>
+    <p>{{ answer.author }}</p>
+    <p>
+        {{ question.text }}
+    <p>
+
+
+    <div>
+        {% for answer in question.sorted_answers %}
+            <div>
+                {{ answer.text }}
+                <p>{{ answer.author }}</p>
+            </div>
+        {% empty %}
+            <div>Nie ma jeszcze żadnej odpowiedzi.</div>
+        {% endfor %}
+    </div>
+
+    {% if user %}
+        <form action="#TODO" method="POST" accept-charset="utf-8">
+            {% for field in answer_form %}
+                {{ field }}
+            {% endfor %}
+            <div><input type="submit" value="Dodaj odpowiedź"></div>
+        </form>
+    {% endif %}
+
+{% endblock %}

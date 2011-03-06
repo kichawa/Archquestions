@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+    <div>
+        {% for tag in tags %}
+        <a href="{% url questions_question_list tag=tag.name %}">
+            {{ tag.name }} - {{ tag.ref_count }}
+        </a>
+        {% endfor %}
+    </div>
+
+    {% for question in questions %}
+        <h1>
+            {{ question.score }}
+            <a href="{% url questions_question_upvote question_key=question.key %}">&uarr;</a>
+            <a href="{% url questions_question_downvote question_key=question.key %}">&darr;</a>
+            <a href="{% url questions_question_details question_key=question.key %}">
+                {{ question.title }}
+            </a>
+            {% for tag in question.tags %}<a href="{% url questions_question_list tag=tag %}">{{ tag }}</a>{% if not forloop.last %},{% endif %}{% endfor %}
+        </h1>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+application: archquestions
+version: 1
+runtime: python
+api_version: 1
+
+
+handlers:
+- url: /favicon.ico
+  static_files: statics/img/favicon.ico
+  upload: statics/img/favicon.ico
+
+- url: /_admin/.*
+  script: main.py
+
+- url: /.*
+  script: main.py
