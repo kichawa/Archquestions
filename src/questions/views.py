@@ -17,7 +17,7 @@ def question_list(request, tag=None):
     ctx = {}
 
     # TODO - pagination
-    questions = Question.all()
+    questions = Question.all().order('-score')
     # TODO - multiple tags filter support
     if tag:
         questions = questions.filter('tags =', tag)
