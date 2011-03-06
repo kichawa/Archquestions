@@ -3,11 +3,14 @@
 
 
 {% block content %}
-    <div>
+    <div id="tag-list">
+        <h2>Tagi</h2>
         {% for tag in tags %}
-        <a href="{% url questions_question_list tag=tag.name %}">
-            {{ tag.name }} - {{ tag.ref_count }}
-        </a>
+            <span class="tag-list-item {% if tag.name in active_tags %}tag-list-item-active{% endif %}">
+                <a href="{% url questions_question_list tag=tag.name %}">
+                    {{ tag.name }} - {{ tag.ref_count }}
+                </a>
+            </span>
         {% endfor %}
     </div>
 

@@ -14,13 +14,16 @@ from questions.forms import NewQuestionForm, AnswerForm
 
 
 def question_list(request, tag=None):
-    ctx = {}
+    ctx = {
+        'active_tags': [],
+    }
 
     # TODO - pagination
     questions = Question.all().order('-score')
     # TODO - multiple tags filter support
     if tag:
         questions = questions.filter('tags =', tag)
+        ctx['active_tags'].append(tag)
 
     tags = QuestionTag.all().order('-ref_count')
 

@@ -4,3 +4,10 @@ a { text-decoration: none; color: #466693; font-weight: bold; }
 a:hover { color: #A20000; }
 
 #header { text-align: right; padding: 5px; margin-top: 20px; }
+
+
+
+#tag-list { position: absolute; top: 200px; right: 100px; }
+#tag-list .tag-list-item { padding: 2px; border: 1px solid #96A5B0; background: #DEE7EE; margin: 3px; }
+#tag-list .tag-list-item:hover { border: 1px solid #DBA285; background: #F5E1D7; }
+#tag-list .tag-list-item-active { border: 1px solid #CCD37B; background: #F2ECD5; }
