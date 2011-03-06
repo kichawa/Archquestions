@@ -51,10 +51,6 @@ class QuestionTag(db.Model):
         return instances
 
 
-
-
-
-
 class Answer(db.Model):
     question = db.ReferenceProperty(Question, required=True)
     text = db.TextProperty(required=True)
