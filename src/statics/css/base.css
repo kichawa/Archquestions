@@ -1,0 +1,6 @@
+body { margin: 0; padding: 0; color: #313131; }
+
+a { text-decoration: none; color: #466693; font-weight: bold; }
+a:hover { color: #A20000; }
+
+#header { text-align: right; padding: 5px; margin-top: 20px; }

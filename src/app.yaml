@@ -9,6 +9,9 @@ handlers:
   static_files: statics/img/favicon.ico
   upload: statics/img/favicon.ico
 
+- url: /statics
+  static_dir: statics
+
 - url: /_admin/.*
   script: main.py
 

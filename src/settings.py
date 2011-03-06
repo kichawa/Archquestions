@@ -31,5 +31,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
 
     "misc.context_processors.user",
+    "misc.context_processors.statics",
 )
 APPEND_SLASH = True
